@@ -28,6 +28,8 @@ namespace WebStoreAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Received get request");
+
                 return Ok(_produtoServices.List());
             }
             catch (Exception exception)
@@ -42,6 +44,8 @@ namespace WebStoreAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("Received post request");
+
                 _produtoServices.Add(produto);
 
                 return Ok("success");
