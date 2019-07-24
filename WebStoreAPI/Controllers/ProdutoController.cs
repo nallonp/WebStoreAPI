@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebStoreAPI.Domain;
 using WebStoreAPI.Services;
+using WebStoreAPI.Services.Interfaces;
 
 namespace WebStoreAPI.Controllers
 {
@@ -13,10 +14,10 @@ namespace WebStoreAPI.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly ProdutoServices _produtoServices;
-        public ProdutoController()
+        private readonly IProdutoServices _produtoServices;
+        public ProdutoController(IProdutoServices produtoServices)
         {
-            _produtoServices = new ProdutoServices();
+            _produtoServices = produtoServices;
         }
 
         [HttpGet]

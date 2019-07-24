@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebStoreAPI.Business\WebStoreAPI.Business.csproj" />
     <ProjectReference Include="..\WebStoreAPI.Domain\WebStoreAPI.Domain.csproj" />
     <ProjectReference Include="..\WebStoreAPI.Repository\WebStoreAPI.Repository.csproj" />
   </ItemGroup>

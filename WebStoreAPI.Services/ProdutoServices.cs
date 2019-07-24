@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using WebStoreAPI.Business.Interfaces;
 using WebStoreAPI.Domain;
 using WebStoreAPI.Repository;
+using WebStoreAPI.Services.Interfaces;
 
 namespace WebStoreAPI.Services
 {
-    public class ProdutoServices
+    public sealed class ProdutoServices : IProdutoServices
     {
+        private readonly IProdutoBusiness _produtoBusiness;
+
+        public ProdutoServices(IProdutoBusiness produtoBusiness)
+        {
+            _produtoBusiness = produtoBusiness;
+        }
         public List<Produto> List()
         {
-            return ProdutoRepository.Data;
+            return _produtoBusiness.List();
         }
 
         public void Add(Produto produto)
         {
-            ProdutoRepository.Data.Add(produto);
+            _produtoBusiness.Add(produto);
         }
     }
 }
